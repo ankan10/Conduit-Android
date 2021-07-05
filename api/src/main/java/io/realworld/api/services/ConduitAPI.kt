@@ -1,10 +1,26 @@
     package io.realworld.api.services
 
-    import io.realworld.api.models.ArticlesResponse
-    import retrofit2.Call
+    import io.realworld.api.models.responses.ArticlesResponse
+    import retrofit2.Response
+    import retrofit2.http.Body
     import retrofit2.http.GET
+    import retrofit2.http.POST
+    import retrofit2.http.Query
+    import io.realworld.api.models.entities.UserCreds
+    import io.realworld.api.models.requests.SignupRequest
+    import io.realworld.api.models.responses.UserResponse
 
     interface ConduitAPI {
+
+        @POST("users")
+        suspend fun signupUser(
+            @Body userCreds: SignupRequest
+        ): Response<UserResponse>
+
         @GET("articles")
-        fun getArticles(): Call<ArticlesResponse>
+        suspend fun getArticles(
+            @Query("author") author: String? = null,
+            @Query("favourited") favourited: String?= null,
+            @Query("tag") tags: String? =null
+        ): Response<ArticlesResponse>
     }
