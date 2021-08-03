@@ -8,5 +8,5 @@ import io.realworld.api.models.entities.Comment
 @JsonClass(generateAdapter = true)
 data class CommentsResponse(
     @Json(name = "comments")
-    val comment: List<Comment>
+    val comments: List<Comment>
 )
