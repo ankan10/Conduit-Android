@@ -4,7 +4,9 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TableLayout
 import androidx.fragment.app.Fragment
+import com.google.android.material.tabs.TabLayout
 import io.realworld.android.databinding.FragmentAuthBinding
 
 class AuthFragment : Fragment() {
@@ -18,6 +20,22 @@ class AuthFragment : Fragment() {
     ): View? {
 
         _binding = FragmentAuthBinding.inflate(inflater, container, false)
+
+        _binding?.authTabLayout?.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
+
+            override fun onTabSelected(tab: TabLayout.Tab?) {
+                TODO("Not yet implemented")
+            }
+
+            override fun onTabUnselected(tab: TabLayout.Tab?) {
+                TODO("Not yet implemented")
+            }
+
+            override fun onTabReselected(tab: TabLayout.Tab?) {
+                TODO("Not yet implemented")
+            }
+        }
+        )
         return _binding?.root
     }
 
