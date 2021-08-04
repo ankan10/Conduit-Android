@@ -2,7 +2,7 @@ package io.realworld.android
 
 import android.os.Bundle
 import android.view.Menu
-import com.google.android.material.snackbar.Snackbar
+import android.widget.Toast
 import com.google.android.material.navigation.NavigationView
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
@@ -11,15 +11,22 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.ViewModelProvider
 import io.realworld.android.databinding.ActivityMainBinding
+import io.realworld.api.models.entities.User
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityMainBinding
+    private  lateinit var authViewModel: AuthViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+
+        authViewModel = ViewModelProvider(this).get(AuthViewModel::class.java)
+
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -38,6 +45,25 @@ class MainActivity : AppCompatActivity() {
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
+
+        authViewModel.user.observe( {lifecycle}){
+            updateMenu(it)
+            Toast.makeText(this, "Logged in as ${it?.username}", Toast.LENGTH_SHORT).show()
+            navController.navigateUp()
+        }
+
+    }
+
+    private fun updateMenu(user: User?) {
+        when(user){
+            is User  -> {
+                binding.navView.menu.clear()
+                binding.navView.inflateMenu(R.menu.menu_main_user)
+            }
+            else -> {
+
+            }
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {

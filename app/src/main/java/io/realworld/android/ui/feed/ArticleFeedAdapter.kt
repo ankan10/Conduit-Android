@@ -10,14 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import io.realworld.android.R
 import io.realworld.android.databinding.ListItemArticleBinding
 import io.realworld.api.models.entities.Article
-import android.graphics.drawable.Drawable
-import android.util.Log
-import com.squareup.picasso.Picasso
-import okhttp3.*
-import java.io.InputStream
-import java.lang.Exception
-import java.net.URL
-import okio.IOException
+
 
 
 class ArticleFeedAdapter(val onArticleClicked: (slug: String) -> Unit) :

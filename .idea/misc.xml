@@ -4,6 +4,7 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="app/src/main/res/drawable/ic_auth_signup.xml" value="0.37447916666666664" />
+        <entry key="app/src/main/res/drawable/ic_menu_auth.xml" value="0.37447916666666664" />
         <entry key="app/src/main/res/drawable/ic_menu_feed.xml" value="0.215625" />
         <entry key="app/src/main/res/drawable/ic_menu_login.xml" value="0.215625" />
         <entry key="app/src/main/res/drawable/is_menu_auth.xml" value="0.37447916666666664" />
@@ -13,10 +14,13 @@
         <entry key="app/src/main/res/layout/fragment_article.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_auth.xml" value="0.35833333333333334" />
         <entry key="app/src/main/res/layout/fragment_feed.xml" value="0.2259963768115942" />
+        <entry key="app/src/main/res/layout/fragment_login.xml" value="0.35833333333333334" />
         <entry key="app/src/main/res/layout/list_item_article.xml" value="0.31023550724637683" />
         <entry key="app/src/main/res/layout/nav_header_main.xml" value="0.31023550724637683" />
         <entry key="app/src/main/res/menu/activity_main_drawer.xml" value="0.35833333333333334" />
         <entry key="app/src/main/res/menu/main.xml" value="0.35833333333333334" />
+        <entry key="app/src/main/res/menu/menu_main_guest.xml" value="0.21666666666666667" />
+        <entry key="app/src/main/res/menu/menu_main_user.xml" value="0.21666666666666667" />
       </map>
     </option>
   </component>

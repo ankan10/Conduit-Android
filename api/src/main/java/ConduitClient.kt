@@ -24,10 +24,8 @@ object ConduitClient {
     }
 
     val okHttpBuilder = OkHttpClient.Builder()
-        .readTimeout(5, TimeUnit.SECONDS)
-        .connectTimeout(2, TimeUnit.SECONDS)
-
-
+        .readTimeout(30, TimeUnit.SECONDS)
+        .connectTimeout(30, TimeUnit.SECONDS)
 
     val retrofitBuilder = Retrofit.Builder()
         .baseUrl("https://conduit.productionready.io/api/")
@@ -42,4 +40,6 @@ object ConduitClient {
         .client(okHttpBuilder.addInterceptor(authInterceptor).build())
         .build()
         .create(ConduitAPI::class.java)
+
+
 }
