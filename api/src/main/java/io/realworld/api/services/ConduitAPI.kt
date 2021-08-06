@@ -4,6 +4,8 @@
     import io.realworld.api.models.responses.ArticlesResponse
     import retrofit2.Response
     import io.realworld.api.models.requests.SignupRequest
+    import io.realworld.api.models.responses.ArticleResponse
+    import io.realworld.api.models.responses.TagsResponse
     import io.realworld.api.models.responses.UserResponse
     import retrofit2.http.*
 
@@ -19,21 +21,20 @@
             @Body userCreds: LoginRequest
         ): Response<UserResponse>
 
-
         @GET("articles")
         suspend fun getArticles(
             @Query("author") author: String? = null,
-            @Query("favourited") favourited: String?= null,
-            @Query("tag") tags: String? =null
+            @Query("favourited") favourited: String? = null,
+            @Query("tag") tag: String? = null
         ): Response<ArticlesResponse>
 
         @GET("articles/{slug}")
         suspend fun getArticleBySlug(
             @Path("slug") slug: String
-        ): Response<ArticlesResponse>
+        ): Response<ArticleResponse>
 
         @GET("tags")
-        suspend fun  getTags(): Response<ArticlesResponse>
-
+        suspend fun getTags(): Response<TagsResponse>
 
     }
+

@@ -6,7 +6,7 @@
 
     <fragment
         android:id="@+id/signupFragment"
-        android:name="io.realworld.android.ui.auth.SignUpFragment"
+        android:name="io.realworld.android.ui.auth.SignupFragment"
         android:label="SignUpFragment" />
     <fragment
         android:id="@+id/loginFragment"

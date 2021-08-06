@@ -3,17 +3,16 @@ package io.realworld.api
 import io.realworld.api.services.ConduitAPI
 import io.realworld.api.services.ConduitAuthAPI
 import okhttp3.Interceptor
+import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
-import okhttp3.OkHttpClient
 import java.util.concurrent.TimeUnit
-
 
 object ConduitClient {
 
-    var authToken: String? =null
+    var authToken: String? = null
 
-    private val authInterceptor = Interceptor{ chain ->
+    private val authInterceptor = Interceptor { chain ->
         var req = chain.request()
         authToken?.let {
             req = req.newBuilder()
@@ -36,10 +35,9 @@ object ConduitClient {
         .build()
         .create(ConduitAPI::class.java)
 
-    val authApi= retrofitBuilder
+    val authApi = retrofitBuilder
         .client(okHttpBuilder.addInterceptor(authInterceptor).build())
         .build()
-        .create(ConduitAPI::class.java)
-
+        .create(ConduitAuthAPI::class.java)
 
 }

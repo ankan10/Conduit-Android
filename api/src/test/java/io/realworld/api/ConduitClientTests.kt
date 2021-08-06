@@ -30,7 +30,7 @@ class ConduitClientTests {
     @Test
     fun `GET articles by tags`() {
         runBlocking {
-            val articles = ConduitClient.publicApi.getArticles( tags = "dragons")
+            val articles = ConduitClient.publicApi.getArticles( tag = "dragons")
             assertNotNull(articles.body()?.articles)
         }
     }

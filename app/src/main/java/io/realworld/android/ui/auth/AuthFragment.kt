@@ -26,15 +26,13 @@ class AuthFragment : Fragment() {
     ): View? {
 
         _binding = FragmentAuthBinding.inflate(inflater, container, false)
-
-//        navController = activity?.let { Navigation.findNavController(it, R.id.authFragmentNavHost) }
-//        Navigation.findNavController(_binding!!.root)
         return _binding?.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        navController = _binding?.let { Navigation.findNavController(it.root) }
+
+        navController = _binding?.let { Navigation.findNavController(it.root.findViewById(R.id.authFragmentNavHost))}
 
 
         _binding?.authTabLayout?.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
@@ -51,11 +49,9 @@ class AuthFragment : Fragment() {
             }
 
             override fun onTabUnselected(tab: TabLayout.Tab?) {
-                TODO("Not yet implemented")
             }
 
             override fun onTabReselected(tab: TabLayout.Tab?) {
-                TODO("Not yet implemented")
             }
         }
         )

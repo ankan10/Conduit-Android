@@ -22,5 +22,10 @@ class FeedViewModel : ViewModel() {
 
     }
 
-}
+    fun fetchMyFeed() = viewModelScope.launch {
+        ArticlesRepo.getMyFeed()?.let {
+            _feed.postValue(it)
+        }
+    }
 
+}
