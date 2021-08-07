@@ -1,5 +1,6 @@
 package io.realworld.api.services
 
+import io.realworld.api.models.entities.UserUpdateData
 import io.realworld.api.models.requests.UserUpdateRequest
 import io.realworld.api.models.responses.ArticleResponse
 import io.realworld.api.models.responses.ArticlesResponse

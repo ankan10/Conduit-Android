@@ -4,8 +4,10 @@ import io.realworld.api.ConduitClient
 import io.realworld.api.models.entities.LoginData
 import io.realworld.api.models.entities.SignupData
 import io.realworld.api.models.entities.User
+import io.realworld.api.models.entities.UserUpdateData
 import io.realworld.api.models.requests.LoginRequest
 import io.realworld.api.models.requests.SignupRequest
+import io.realworld.api.models.requests.UserUpdateRequest
 
 object UserRepo {
 
@@ -28,6 +30,18 @@ object UserRepo {
 
     }
 
+
+    suspend fun updateUser(
+        image: String?,
+        username: String?,
+        bio:String?,
+        email:String?,
+        password: String?
+        ): User? {
+
+        val response = authAPI.updateCurrentUser(UserUpdateRequest(UserUpdateData(bio, email, image, username, password)))
+        return response.body()?.user
+    }
     suspend fun getUserProfile() = authAPI.getCurrentUser().body()?.user
 
 }

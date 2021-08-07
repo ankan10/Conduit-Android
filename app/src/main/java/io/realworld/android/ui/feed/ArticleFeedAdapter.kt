@@ -49,7 +49,8 @@ class ArticleFeedAdapter(val onArticleClicked: (slug: String) -> Unit) :
             bodySnippetTextView.text = article.body
 
             dateTextView.text = article.createdAt.substring(0, 10)+" "+article.createdAt.substring(11, 19)
-            val imageUrl: String?= article.author.image
+
+            avatarImageView.setImageResource(R.drawable.cat)
 
 
             root.setOnClickListener { onArticleClicked(article.slug) }

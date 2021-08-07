@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:padding="10dp"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <EditText
+        android:hint="URL of profile picture"
+        android:inputType="textUri"
+        android:id="@+id/imageEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <EditText
+        android:hint="Username"
+        android:id="@+id/usernameEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <EditText
+        android:lines="5"
+        android:id="@+id/bioEditText"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:gravity="bottom"
+        android:hint="Short bio about you"
+        android:inputType="textLongMessage"
+         />
+
+    <EditText
+        android:hint="Email"
+        android:inputType="textEmailAddress"
+        android:id="@+id/emailEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <EditText
+        android:hint="New Password"
+        android:inputType="textPassword"
+        android:id="@+id/passwordEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <Button
+        android:id="@+id/updateSettingsButton"
+        android:layout_gravity="right"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Update Settings"
+        />
+
+</LinearLayout>
