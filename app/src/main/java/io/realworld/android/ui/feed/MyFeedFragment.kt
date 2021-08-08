@@ -12,7 +12,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import io.realworld.android.R
 import io.realworld.android.databinding.FragmentFeedBinding
 
-class MyFeedFragment: Fragment() {
+class MyFeedFragment : Fragment() {
+
     private var _binding: FragmentFeedBinding? = null
     private lateinit var viewModel: FeedViewModel
     private lateinit var feedAdapter: ArticleFeedAdapter
@@ -39,18 +40,15 @@ class MyFeedFragment: Fragment() {
         }
     }
 
-    fun openArticle(articleId: String) {
+    private fun openArticle(articleId: String) =
         findNavController().navigate(
-            R.id.action_text,
-            bundleOf(
-                resources.getString(R.string.app_name) to articleId
-            )
+        R.id.action_myFeed_openArticle,
+        bundleOf(
+            resources.getString(R.string.arg_article_id) to articleId
         )
-    }
-
+    )
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
     }
-
 }

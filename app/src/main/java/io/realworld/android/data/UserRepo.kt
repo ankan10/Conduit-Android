@@ -30,6 +30,10 @@ object UserRepo {
 
     }
 
+    suspend fun  getCurrentUser(token: String): User? {
+        ConduitClient.authToken = token
+        return authAPI.getCurrentUser().body()?.user
+    }
 
     suspend fun updateUser(
         image: String?,

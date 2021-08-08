@@ -1,6 +1,5 @@
 package io.realworld.android.ui.feed
 
-
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,9 +8,9 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import io.realworld.android.R
 import io.realworld.android.databinding.ListItemArticleBinding
+import io.realworld.android.extensions.loadImage
+import io.realworld.android.extensions.timeStamp
 import io.realworld.api.models.entities.Article
-
-
 
 class ArticleFeedAdapter(val onArticleClicked: (slug: String) -> Unit) :
     ListAdapter<Article, ArticleFeedAdapter.ArticleViewHolder>(
@@ -27,10 +26,7 @@ class ArticleFeedAdapter(val onArticleClicked: (slug: String) -> Unit) :
     ) {
     inner class ArticleViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
 
-    lateinit var view: ViewGroup
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ArticleViewHolder {
-        view=parent
         return ArticleViewHolder(
             parent.context.getSystemService(LayoutInflater::class.java).inflate(
                 R.layout.list_item_article,
@@ -47,11 +43,8 @@ class ArticleFeedAdapter(val onArticleClicked: (slug: String) -> Unit) :
             authorTextView.text = article.author.username
             titleTextView.text = article.title
             bodySnippetTextView.text = article.body
-
-            dateTextView.text = article.createdAt.substring(0, 10)+" "+article.createdAt.substring(11, 19)
-
-            avatarImageView.setImageResource(R.drawable.cat)
-
+            dateTextView.timeStamp = article.createdAt
+            avatarImageView.loadImage(article.author.image, true)
 
             root.setOnClickListener { onArticleClicked(article.slug) }
 

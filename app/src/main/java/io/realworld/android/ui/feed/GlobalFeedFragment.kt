@@ -39,11 +39,11 @@ class GlobalFeedFragment : Fragment() {
         }
     }
 
-    fun openArticle(articleId: String) {
+    private fun openArticle(articleId: String) {
         findNavController().navigate(
-            R.id.action_text,
+            R.id.action_globalFeed_openArticle,
             bundleOf(
-                resources.getString(R.string.app_name) to articleId
+                resources.getString(R.string.arg_article_id) to articleId
             )
         )
     }
