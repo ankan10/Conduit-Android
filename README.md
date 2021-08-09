@@ -1,4 +1,4 @@
-# Medium Clone
+# Conduit
 - FullStack Real World Application
 - Allows you to see other blogs
 - Create your own blog post
